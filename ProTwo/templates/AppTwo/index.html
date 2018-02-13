@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "AppTwo/base.html" %}
+  {% block body_block %}
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to the User Directory</h1>
+        {{ insert_me }}<bR>
+        <h1>{{ text|cut:'hello'}}</h1>
+        <h1>{{ number|add:99}}</h1>
+        <a href = "{% url 'AppTwo:show_user' %}">Show Users</a><br>
+        <a href = "{% url 'admin:index' %}">Go to Admin Dashboard!</a><br>
+        <a href = "{% url 'AppTwo:user' %}">Register Yourself</a>
+      </div>
+    </div>
+
+    <div class="container">
+    <h1>Users Listing</h1>
+    {% if users %}
+    <ol>
+      {% for u in users %}
+      <li>User Info</li>
+      <ul>
+        <li>Username: {{ u.username }}</li>
+        <!-- <li>Password: {{ u.password }}</li>         -->
+        <li>Email: {{ u.email }}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </div>
+  {% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "AppTwo/base.html" %}
+  {% block body_block %}
+    <div class="container">
+      <h1>Users Listing</h1>
+      {% if users %}
+      <ol>
+        {% for u in users %}
+        <li>User Info</li>
+        <ul>
+          <li>Username: {{ u.username }}</li>
+          <!-- <li>Last Name: {{ u.last_name }}</li> -->
+          <li>Email: {{ u.email }}</li>
+        </ul>
+        {% endfor %}
+      </ol>
+      {% endif %}
+      <a href="{% url 'index' %}">Go to Homepage</a>
+    </div>
+  {% endblock %}
